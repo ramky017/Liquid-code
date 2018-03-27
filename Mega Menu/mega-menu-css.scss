@@ -1,0 +1,313 @@
+/* Menu Container */
+.nav {
+	display: inline-block;
+	position: relative;
+	cursor: default;
+	z-index: 500;
+  width:100%;
+  background: blue;
+}
+/* Menu List */
+.nav > li {
+	display: block;
+	float: left;
+}
+/* Menu Links */
+.nav > li > a {
+	position: relative;
+	display: block;
+	z-index: 510;
+	height: 54px;
+	padding: 0 20px;
+	line-height: 54px;
+	
+	font-family: Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	font-size: 13px;
+	color: #fcfcfc;
+	text-shadow: 0 0 1px rgba(0,0,0,.35);
+	-webkit-transition: all .0s ease;
+	-moz-transition: all .0s ease;
+	-o-transition: all .0s ease;
+	-ms-transition: all .0s ease;
+	transition: all .0s ease;
+}
+
+.nav > li:hover > a { background: #4b4441; }
+
+.nav > li:first-child > a {
+	border-radius: 3px 0 0 3px;
+	border-left: none;
+}
+
+/* Search Form */
+.nav > li.nav-search > form {
+	position: relative;
+	width: inherit;
+	height: 54px;
+	z-index: 510;
+	border-left: 1px solid #4b4441;
+}
+
+.nav > li.nav-search input[type="text"] {
+	display: block;
+	float: left;
+	width: 1px;
+	height: 24px;
+	padding: 15px 0;
+	line-height: 24px;
+
+	font-family: Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	font-size: 13px;
+	color: #999999;
+	text-shadow: 0 0 1px rgba(0,0,0,.35);
+
+	background: #372f2b;
+
+
+	-webkit-transition: all .0s ease;
+	-moz-transition: all .0s ease;
+	-o-transition: all .0s ease;
+	-ms-transition: all .0s ease;
+	transition: all .0s ease;
+}
+
+.nav > li.nav-search input[type="text"]:focus { color: #fcfcfc; }
+
+.nav > li.nav-search input[type="text"]:focus,
+.nav > li.nav-search:hover input[type="text"] {
+	width: 110px;
+	padding: 15px 20px;
+
+
+	-webkit-transition: all .0s ease;
+	-moz-transition: all .0s ease;
+	-o-transition: all .0s ease;
+	-ms-transition: all .0s ease;
+	transition: all .0s ease;
+}
+
+.nav > li.nav-search input[type="submit"] {
+	display: block;
+	float: left;
+	width: 20px;
+	height: 54px;
+	padding: 0 25px;
+	cursor: pointer;
+
+	background: #372f2b url(../img/search-icon.png) no-repeat center center;
+
+	border-radius: 0 3px 3px 0;
+
+
+	-webkit-transition: all .0s ease;
+	-moz-transition: all .0s ease;
+	-o-transition: all .0s ease;
+	-ms-transition: all .0s ease;
+	transition: all .0s ease;
+}
+
+.nav > li.nav-search input[type="submit"]:hover { background-color: #4b4441; }
+
+/* Menu Dropdown */
+.nav > li > div {
+	position: absolute;
+	display: block;
+	width: 100%;
+	top: 50px;
+	left: 0;
+
+	opacity: 0;
+	visibility: hidden;
+	overflow: hidden;
+
+	background: #ffffff;
+	border-radius: 0 0 3px 3px;
+
+
+	-webkit-transition: all .0s ease;
+	-moz-transition: all .0s ease;
+	-o-transition: all .0s ease;
+	-ms-transition: all .0s ease;
+	transition: all .0s ease;
+}
+
+.nav > li:hover > div {
+	opacity: 1;
+	visibility: visible;
+	overflow: visible;
+}
+
+/* Menu Content Styles */
+.nav .nav-column {
+	float: left;
+	width: 20%;
+	padding: 2.5%;
+}
+
+.nav .nav-column h3 {
+	margin: 0px 0 0px 0;
+	line-height: 18px;
+	
+	font-family: Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	font-size: 14px;
+	color: #372f2b;
+	text-transform: uppercase;
+}
+
+.nav .nav-column h3.orange { color: #ff722b; }
+
+.nav .nav-column li a {
+	display: block;
+	line-height: 26px;
+	
+	font-family: Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	font-size: 13px;
+	color: #888888;
+}
+
+.nav .nav-column li a:hover { color: #666666; }
+.background-menu-image {
+  width: 100%;
+  opacity: 0.5;
+}
+/*================ Nav Links ================*/
+.site-nav {
+  position:relative;
+  white-space: nowrap;
+  opacity: 0;
+
+  .no-js &,
+  &.site-nav--init {
+    opacity: 1;
+    @include transition('color 0.2s, opacity 0.1s');
+  }
+}
+
+.site-nav__item {
+  white-space: normal;
+}
+
+.site-nav__link {
+  position:relative;
+  @include accentFontStack;
+  font-size: em(14px);
+
+  .is-light & {
+    color: #fff;
+  }
+
+  .is-dark & {
+    color: #000;
+  }
+}
+
+.site-nav--has-dropdown {
+  position:relative;
+  > a {
+    position: relative;
+    z-index: $zindexNavDropdowns + 1;
+  }
+
+  &:hover > a {
+    color: $colorNavText;
+    background-color: $colorNav;
+    opacity: 1;
+    @include transition(none);
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: $gutter / 2;
+      right: $gutter;
+      bottom: 0;
+      display: block;
+      background-color: $colorNavText;
+      height: 1px;
+      z-index: $zindexNavDropdowns + 1;
+    }
+  }
+}
+
+/*================ Dropdown Animation ================*/
+.site-nav__dropdown {
+  display: block;
+  position: absolute;
+  visibility: hidden;
+  overflow: hidden;
+  background-color: $colorNav;
+  min-width: 10%;
+  padding: ($gutter / 3) 0;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.09);
+  @include transform(translate3d(0px, -12px, 0px));
+.nav-focus + &,.test:hover &, {
+   visibility: visible;
+}
+  .supports-no-touch .site-nav--has-dropdown:hover &,
+  .site-nav--has-dropdown.nav-hover &,
+  .nav-focus + &, .test:hover &,.test & {
+    visibility: visible;
+    background-color:pink;
+    @include transform(translate3d(0px, 0px, 0px));
+    @include transition('all 300ms cubic-bezier(0.2, .06, .05, .95)');
+  }
+
+}
+
+/*================ Submenu items ================*/
+.site-nav__dropdown a {
+  background-color: transparent;
+  color: $colorTextBody;
+
+  &:hover,
+  &:active {
+    background-color: transparent;
+    color: $colorSecondary;
+  }
+}
+
+.site-nav__dropdown-link {
+  @include bodyFontItalic;
+  display: block;
+  white-space: nowrap;
+  padding: 5px 15px;
+  font-size: em(16px);
+}
+.grandchild {
+display:block;
+}
+.menu-sub {
+width: 1000px;
+  position:absolute ;
+}
+.menu-col-1 {
+ float: left;
+  width: 25%;
+}
+/*================ Compressed nav if too many links ================*/
+.site-nav--compress {
+  .site-nav__expanded-item {
+    display: none;
+  }
+}
+
+.site-nav--compress__menu {
+  display: none;
+
+  .site-nav--compress & {
+    display: inline-block;
+  }
+}
+
+/*================ Search bar ================*/
+.site-nav--search__bar {
+  vertical-align: middle;
+  padding: 0 10px 7px 0;
+
+  input {
+    background-color: $colorInputBg;
+  }
+}
