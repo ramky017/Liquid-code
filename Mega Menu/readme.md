@@ -1,0 +1,1 @@
+This Mega menu is made with the Liquid Langauge. It can be used with Shopify and Jekyll with minimal changes depending on your use case.
